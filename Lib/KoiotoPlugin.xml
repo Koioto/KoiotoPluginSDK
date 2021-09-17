@@ -4,184 +4,194 @@
         <name>KoiotoPlugin</name>
     </assembly>
     <members>
-        <member name="T:Koioto.Plugin.Overlay">
+        <member name="T:Koioto.Plugin.IPlugable">
             <summary>
-            A Class is base of Koioto overlay plugin.
-            Please inherit it to make Koioto overlay plugin.
+            プラグイン。
             </summary>
         </member>
-        <member name="P:Koioto.Plugin.Overlay.Name">
+        <member name="P:Koioto.Plugin.IPlugable.Name">
             <summary>
-            Name of plugin.
+            プラグインの名前。
             </summary>
         </member>
-        <member name="P:Koioto.Plugin.Overlay.Creator">
+        <member name="P:Koioto.Plugin.IPlugable.Creator">
             <summary>
-            Your name.
+            制作者の名前。
             </summary>
         </member>
-        <member name="P:Koioto.Plugin.Overlay.Description">
+        <member name="P:Koioto.Plugin.IPlugable.Description">
             <summary>
-            Description of plugin.
+            プラグインの説明。複数行可。
             </summary>
         </member>
-        <member name="P:Koioto.Plugin.Overlay.Version">
+        <member name="P:Koioto.Plugin.IPlugable.Version">
             <summary>
-            Version of plugin.
+            プラグインのバージョン。
             </summary>
         </member>
-        <member name="M:Koioto.Plugin.Overlay.OnEnable">
+        <member name="T:Koioto.Plugin.KoiotoPlugin">
             <summary>
-            The method processing when plugin was enabled.
+            Koioto プラグインの基底となるクラス。
+            この抽象クラスを継承し、Koioto プラグインを制作してください。
             </summary>
         </member>
-        <member name="M:Koioto.Plugin.Overlay.OnDisable">
+        <member name="P:Koioto.Plugin.KoiotoPlugin.Name">
             <summary>
-            The method processing when plugin was disabled.
+            プラグインの名前。
             </summary>
         </member>
-        <member name="M:Koioto.Plugin.Overlay.OnUpdate">
+        <member name="P:Koioto.Plugin.KoiotoPlugin.Creator">
             <summary>
-            The method processing other than drawing.
+            制作者の名前。
             </summary>
         </member>
-        <member name="M:Koioto.Plugin.Overlay.OnDraw">
+        <member name="P:Koioto.Plugin.KoiotoPlugin.Description">
             <summary>
-            The method calls when drawing something.
+            プラグインの説明。複数行可。
             </summary>
         </member>
-        <member name="M:Koioto.Plugin.Overlay.OnSelectedSong(Koioto.Support.Playable[],Koioto.Support.ChartInfo,Koioto.Support.Log.PlayLog[])">
+        <member name="P:Koioto.Plugin.KoiotoPlugin.Version">
             <summary>
-            The method calls when decided song.
-            </summary>
-            <param name="playable">Playable[]</param>
-            <param name="chartInfo">Chart infomation</param>
-            <param name="playLogs">Instance of playing log.</param>
-        </member>
-        <member name="M:Koioto.Plugin.Overlay.OnHitNote(Koioto.Support.FileReader.Chip,System.Int32)">
-            <summary>
-            The method calls when hit chips.
-            </summary>
-            <param name="chip">Chip</param>
-            <param name="player">Player</param>
-        </member>
-        <member name="M:Koioto.Plugin.Overlay.OnRoll(Koioto.Support.FileReader.Chip,System.Int32)">
-            <summary>
-            The method calls when rolling.
-            </summary>
-            <param name="chip">Chip</param>
-            <param name="player">Player</param>
-        </member>
-        <member name="M:Koioto.Plugin.Overlay.OnBrokeBalloon(Koioto.Support.FileReader.Chip,System.Int32)">
-            <summary>
-            The method calls when broke balloons.
-            </summary>
-            <param name="chip">Chip</param>
-            <param name="player">Player</param>
-        </member>
-        <member name="M:Koioto.Plugin.Overlay.OnChangedCombo(System.Int64,System.Int32)">
-            <summary>
-            The method calls when changed combo.
-            </summary>
-            <param name="combo">Combo</param>
-            <param name="player">Player</param>
-        </member>
-        <member name="M:Koioto.Plugin.Overlay.OnChangedMainScore(System.Int64,System.Int32)">
-            <summary>
-            The method calls when changed main score.
-            </summary>
-            <param name="mainScore">Main score</param>
-            <param name="player">Player</param>
-        </member>
-        <member name="M:Koioto.Plugin.Overlay.OnChangedSubScore(System.Int64,System.Int32)">
-            <summary>
-            The method calls when changed sub score.
-            </summary>
-            <param name="subScore">Sub score</param>
-            <param name="player">Player</param>
-        </member>
-        <member name="M:Koioto.Plugin.Overlay.OnChangedSection(System.Int32,System.Int32,System.Collections.Generic.List{Koioto.Support.FileReader.Chip})">
-            <summary>
-            The method calls when changed section.
-            </summary>
-            <param name="sectionIndex">Section's index</param>
-            <param name="player">Player</param>
-            <param name="section">Section</param>
-        </member>
-        <member name="M:Koioto.Plugin.Overlay.OnSongSelect">
-            <summary>
-            The method calls when select song.
+            プラグインのバージョン。
             </summary>
         </member>
-        <member name="M:Koioto.Plugin.Overlay.OnPlayer(System.Int64)">
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnEnable">
             <summary>
-            The method calls when playing.
-            </summary>
-            <param name="sectionTickValue">Now section's value of counter</param>
-        </member>
-        <member name="M:Koioto.Plugin.Overlay.OnResult">
-            <summary>
-            The method calls when result.
+            プラグインが有効化されたときに呼び出されるメソッドです。
+            基本、Koioto の起動時に呼び出されます。
             </summary>
         </member>
-        <member name="M:Koioto.Plugin.Overlay.OnChangedResolution(System.Drawing.Size)">
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnDisable">
             <summary>
-            The method calls when changed screen resolution.
+            プラグインが無効化されたときに呼び出されるメソッドです。
+            基本、Koioto の終了時に呼び出されます。
+            </summary>
+        </member>
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnUpdate">
+            <summary>
+            Koioto の描画処理が終わった後呼び出されるメソッドです。
+            どのシーンにおいてもこのメソッドは呼びだれます。
+            </summary>
+        </member>
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnDraw">
+            <summary>
+            DrawOrder.json にて指定されたタイミングで呼び出されるメソッドです。
+            </summary>
+        </member>
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnSelectedSong(Koioto.Support.Playable[],Koioto.Support.ChartMetadata,Koioto.Support.Log.PlayLog[])">
+            <summary>
+            曲の選択が確定した場合に呼び出されるメソッドです。
+            </summary>
+            <param name="playable">Playable[]。</param>
+            <param name="chartInfo">ChartMetadata。読み書き可能ですが、Koioto に反映されません。</param>
+            <param name="playLogs">プレイログのインスタンス。</param>
+        </member>
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnHitNote(Koioto.Support.FileReader.Chip,System.Int32)">
+            <summary>
+            音符がヒットしたときに呼び出されるメソッドです。
+            </summary>
+            <param name="chip">音符。</param>
+            <param name="player">何人目のプレイヤーか。</param>
+        </member>
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnRoll(Koioto.Support.FileReader.Chip,System.Int32)">
+            <summary>
+            連打中に呼び出されるメソッドです。
+            </summary>
+            <param name="chip">音符。</param>
+            <param name="player">何人目のプレイヤーか。</param>
+        </member>
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnBrokeBalloon(Koioto.Support.FileReader.Chip,System.Int32)">
+            <summary>
+            ふうせん連打で叩き切ったときに呼び出されるメソッドです。
+            </summary>
+            <param name="chip">音符。</param>
+            <param name="player">何人目のプレイヤーか。</param>
+        </member>
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnChangedCombo(System.Int64,System.Int32)">
+            <summary>
+            コンボ数が変わったときに呼び出されるメソッドです。
+            </summary>
+            <param name="combo">コンボ数。</param>
+            <param name="player">何人目のプレイヤーか。</param>
+        </member>
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnChangedMainScore(System.Int64,System.Int32)">
+            <summary>
+            メインスコアが変わったときに呼び出されるメソッドです。
+            </summary>
+            <param name="mainScore">メインスコア。</param>
+            <param name="player">何人目のプレイヤーか。</param>
+        </member>
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnChangedSubScore(System.Int64,System.Int32)">
+            <summary>
+            サブスコアが変わったときに呼び出されるメソッドです。
+            </summary>
+            <param name="subScore">サブスコア、</param>
+            <param name="player">何人目のプレイヤーか。</param>
+        </member>
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnChangedSection(System.Int32,System.Int32,System.Collections.Generic.List{Koioto.Support.FileReader.Chip})">
+            <summary>
+            セクションが切り替わったときに呼び出されるメソッドです。
+            </summary>
+            <param name="sectionIndex">セクションのインデックス。</param>
+            <param name="player">何人目のプレイヤーか。</param>
+            <param name="section">切り替わった後のセクションの音符のリスト。</param>
+        </member>
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnSongSelect">
+            <summary>
+            選曲画面で呼び出されるメソッドです。
+            </summary>
+        </member>
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnPlayer(System.Int64)">
+            <summary>
+            再生画面で呼び出されるメソッドです。
+            </summary>
+            <param name="sectionTickValue">現在のセクションの経過時間。マイクロ秒。</param>
+        </member>
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnResult">
+            <summary>
+            リザルト画面で呼び出されるメソッドです。
+            </summary>
+        </member>
+        <member name="M:Koioto.Plugin.KoiotoPlugin.OnChangedResolution(System.Drawing.Size)">
+            <summary>
+            内部解像度が変化したときに呼び出されるメソッドです。
+            基本、Koioto の起動時に呼び出されます。
+            ウィンドウサイズの変更ではこのメソッドは呼び出されません。
             </summary>
             <param name="size">Screen resolution</param>
         </member>
-        <member name="T:Koioto.Plugin.IFileReadable">
+        <member name="T:Koioto.Plugin.IChartReadable">
             <summary>
-            A Class is base of Koioto file reader plugin.
-            Please inherit it to make Koioto file reader plugin.
+            ファイル読み込みプラグインのインターフェース。
+            このインターフェースを実装し、ファイル読み込みプラグインを制作してください。
             </summary>
         </member>
-        <member name="P:Koioto.Plugin.IFileReadable.Name">
+        <member name="M:Koioto.Plugin.IChartReadable.GetExtensions">
             <summary>
-            Name of plugin.
+            このファイル読み込みプラグインで読み込むことのできるファイルフォーマットの拡張子を取得します。
             </summary>
         </member>
-        <member name="P:Koioto.Plugin.IFileReadable.Creator">
+        <member name="M:Koioto.Plugin.IChartReadable.GetPlayable(System.String,Koioto.Support.FileReader.Courses)">
             <summary>
-            Your name.
+            再生するための Playable[] を取得します。
             </summary>
+            <param name="filePath">ファイルパス。</param>
+            <param name="courses">選択されたコース。配列の長さがプレイヤー人数になります。</param>
+            <returns>Playable[]。</returns>
         </member>
-        <member name="P:Koioto.Plugin.IFileReadable.Description">
+        <member name="M:Koioto.Plugin.IChartReadable.GetChartInfo(System.String)">
             <summary>
-            Description of plugin.
+            その譜面のメタデータを取得します。
             </summary>
+            <param name="filePath">ファイルパス。</param>
+            <returns>メタデータ。</returns>
         </member>
-        <member name="P:Koioto.Plugin.IFileReadable.Version">
+        <member name="M:Koioto.Plugin.IChartReadable.GetSelectable(System.String)">
             <summary>
-            Version of plugin.
+            選曲画面で表示される譜面情報を取得します。
             </summary>
-        </member>
-        <member name="M:Koioto.Plugin.IFileReadable.GetExtensions">
-            <summary>
-            Extensions that can be read by this plugin.
-            </summary>
-        </member>
-        <member name="M:Koioto.Plugin.IFileReadable.GetPlayable(System.String,Koioto.Support.FileReader.Courses)">
-            <summary>
-            Returns Playable[] for play the chart.
-            </summary>
-            <param name="filePath">File's path.</param>
-            <param name="courses">Selected course. Length is number of player.</param>
-            <returns>Playable[]</returns>
-        </member>
-        <member name="M:Koioto.Plugin.IFileReadable.GetChartInfo(System.String)">
-            <summary>
-            Returns infomation of chart.
-            </summary>
-            <param name="filePath">File's path.</param>
-            <returns>ChartInfo.</returns>
-        </member>
-        <member name="M:Koioto.Plugin.IFileReadable.GetSelectable(System.String)">
-            <summary>
-            Returns Infomationable for regist the chart.
-            </summary>
-            <param name="filePath">File's path.</param>
-            <returns>Infomationable.</returns>
+            <param name="filePath">ファイルパス。</param>
+            <returns>SongSelectMetadata。</returns>
         </member>
     </members>
 </doc>

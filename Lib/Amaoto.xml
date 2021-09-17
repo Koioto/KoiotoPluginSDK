@@ -729,12 +729,21 @@
             <param name="edge">縁取りの大きさ。</param>
             <param name="fontStyle">フォントスタイル。</param>
         </member>
-        <member name="M:Amaoto.FontRender.GetTexture(System.String,System.Nullable{System.Drawing.Rectangle})">
+        <member name="M:Amaoto.FontRender.GetTexture(System.String,System.Nullable{System.Drawing.Size})">
             <summary>
             文字テクスチャを生成します。
             </summary>
             <param name="text">文字列。</param>
-            <param name="rectangle">文字の範囲。</param>
+            <param name="size">文字の範囲。</param>
+            <returns>テクスチャ。</returns>
+        </member>
+        <member name="M:Amaoto.FontRender.GetTexture(System.String,System.Int32,System.Boolean)">
+            <summary>
+            文字テクスチャを生成します。
+            </summary>
+            <param name="text">文字列。</param>
+            <param name="width">文字の幅 (px)。</param>
+            <param name="isEllipsis">省略するかしないか。省略しない場合、折り返す。</param>
             <returns>テクスチャ。</returns>
         </member>
         <member name="P:Amaoto.FontRender.ForeColor">
@@ -1391,6 +1400,77 @@
             開いているタブ。
             </summary>
         </member>
+        <member name="T:Amaoto.Input">
+            <summary>
+            文字列入力を行う。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Input.Init(System.UInt64,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            文字列入力の初期化を行う。
+            </summary>
+            <param name="maximumLength">最大文字数 (バイト)</param>
+            <param name="escapeCancelable">エスケープキーで入力をキャンセルできるかどうか。</param>
+            <param name="inputSingleOnly">半角文字のみ入力可能にするかどうか。</param>
+            <param name="inputNumberOnly">数字のみ入力可能にするかどうか。</param>
+            <param name="inputDoubleOnly">全角文字のみ入力可能にするかどうか。</param>
+            <param name="multiLine">複数行入力にするかどうか。</param>
+        </member>
+        <member name="M:Amaoto.Input.End">
+            <summary>
+            文字入力を終了する。
+            </summary>
+        </member>
+        <member name="P:Amaoto.Input.KeyInputState">
+            <summary>
+            現在のキー入力の状態。
+            </summary>
+        </member>
+        <member name="P:Amaoto.Input.Text">
+            <summary>
+            テキスト。
+            </summary>
+        </member>
+        <member name="P:Amaoto.Input.Position">
+            <summary>
+            現在位置。
+            </summary>
+        </member>
+        <member name="P:Amaoto.Input.Selection">
+            <summary>
+            選択範囲。
+            </summary>
+        </member>
+        <member name="P:Amaoto.Input.IsEnable">
+            <summary>
+            有効かどうか。
+            </summary>
+        </member>
+        <member name="T:Amaoto.KeyInputState">
+            <summary>
+            キー入力の状態。
+            </summary>
+        </member>
+        <member name="F:Amaoto.KeyInputState.Typing">
+            <summary>
+            タイピング中。
+            </summary>
+        </member>
+        <member name="F:Amaoto.KeyInputState.Finished">
+            <summary>
+            完了。
+            </summary>
+        </member>
+        <member name="F:Amaoto.KeyInputState.Canceled">
+            <summary>
+            キャンセルされた。
+            </summary>
+        </member>
+        <member name="F:Amaoto.KeyInputState.Error">
+            <summary>
+            エラー。
+            </summary>
+        </member>
         <member name="T:Amaoto.ITextureReturnable">
             <summary>
             何かのテクスチャを取得できる仕組みを提供します。
@@ -1781,13 +1861,14 @@
             </summary>
             <param name="bitmap">ビットマップ。</param>
         </member>
-        <member name="M:Amaoto.Texture.Draw(System.Double,System.Double,System.Nullable{System.Drawing.Rectangle},System.Boolean,System.Boolean)">
+        <member name="M:Amaoto.Texture.Draw(System.Double,System.Double,System.Nullable{System.Drawing.Rectangle},System.Nullable{System.Drawing.Point},System.Boolean,System.Boolean)">
             <summary>
             描画します。
             </summary>
             <param name="x">X座標。</param>
             <param name="y">Y座標。</param>
             <param name="rectangle">描画範囲。</param>
+            <param name="drawOrigin">描画基準点。指定するとReferencerPointを無視する。</param>
             <param name="reverseX">横方向に反転描画するか。</param>
             <param name="reverseY">縦方向に反転描画するか。</param>
         </member>

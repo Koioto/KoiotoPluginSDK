@@ -4,59 +4,63 @@
         <name>KoiotoSupport</name>
     </assembly>
     <members>
-        <member name="T:Koioto.Support.ChartInfo">
+        <member name="T:Koioto.Support.ChartMetadata">
             <summary>
-            演奏画面で使用される、譜面情報を扱うクラス。
+            再生画面で使用される、譜面情報を扱うクラス。
             </summary>
         </member>
-        <member name="P:Koioto.Support.ChartInfo.Title">
+        <member name="P:Koioto.Support.ChartMetadata.Title">
             <summary>
             各セクションのタイトル。
             </summary>
         </member>
-        <member name="P:Koioto.Support.ChartInfo.Subtitle">
+        <member name="P:Koioto.Support.ChartMetadata.Subtitle">
             <summary>
             各セクションのサブタイトル。
             </summary>
         </member>
-        <member name="P:Koioto.Support.ChartInfo.Artist">
+        <member name="P:Koioto.Support.ChartMetadata.Artist">
             <summary>
             各セクションのアーティスト。
             </summary>
         </member>
-        <member name="P:Koioto.Support.ChartInfo.Creator">
+        <member name="P:Koioto.Support.ChartMetadata.Creator">
             <summary>
             各セクションの譜面制作者。
             </summary>
         </member>
-        <member name="P:Koioto.Support.ChartInfo.Audio">
+        <member name="P:Koioto.Support.ChartMetadata.Audio">
             <summary>
             各セクションの音源。
+            絶対パスで指定する。
             </summary>
         </member>
-        <member name="P:Koioto.Support.ChartInfo.Background">
+        <member name="P:Koioto.Support.ChartMetadata.Background">
             <summary>
-            各セクションの背景画像・動画
+            各セクションの背景画像・動画。
+            絶対パスで指定する。
             </summary>
         </member>
-        <member name="P:Koioto.Support.ChartInfo.Movieoffset">
+        <member name="P:Koioto.Support.ChartMetadata.Movieoffset">
             <summary>
             各セクションの動画のオフセット。
             </summary>
         </member>
-        <member name="P:Koioto.Support.ChartInfo.BPM">
+        <member name="P:Koioto.Support.ChartMetadata.BPM">
             <summary>
-            各セクションの初期BPM。
+            各セクションの初期 BPM。
             </summary>
         </member>
-        <member name="P:Koioto.Support.ChartInfo.Offset">
+        <member name="P:Koioto.Support.ChartMetadata.Offset">
             <summary>
             各セクションのオフセット。
+            指定した時間分だけ、譜面と音楽がズレる。
             </summary>
         </member>
-        <member name="P:Koioto.Support.ChartInfo.Exam">
+        <member name="P:Koioto.Support.ChartMetadata.Exam">
             <summary>
             メドレー時の条件。
+            現時点では使われていない。
             </summary>
         </member>
         <member name="T:Koioto.Support.Exam">
@@ -117,6 +121,7 @@
         <member name="M:Koioto.Support.Extensions.IsRoll(Koioto.Support.FileReader.Notes)">
             <summary>
             連打の音符であるか。
+            将来的な仕様変更で意図した挙動にならないよう、なるべくこのメソッドを使用してください。
             </summary>
             <param name="note">音符の種類。</param>
             <returns>連打開始、連打中、連打終了のいずれかどうか。</returns>
@@ -124,34 +129,38 @@
         <member name="M:Koioto.Support.Extensions.IsDon(Koioto.Support.FileReader.Notes)">
             <summary>
             面の音符かどうか。
+            将来的な仕様変更で意図した挙動にならないよう、なるべくこのメソッドを使用してください。
             </summary>
             <param name="note">音符の種類。</param>
-            <returns>Don、DONかどうか。</returns>
+            <returns>Don、DON かどうか。</returns>
         </member>
         <member name="M:Koioto.Support.Extensions.IsKa(Koioto.Support.FileReader.Notes)">
             <summary>
             縁の音符かどうか。
+            将来的な仕様変更で意図した挙動にならないよう、なるべくこのメソッドを使用してください。
             </summary>
             <param name="note">音符の種類。</param>
-            <returns>Ka、KAかどうか。</returns>
+            <returns>Ka、KA かどうか。</returns>
         </member>
         <member name="M:Koioto.Support.Extensions.IsBig(Koioto.Support.FileReader.Notes)">
             <summary>
             デカい音符かどうか。
+            将来的な仕様変更で意図した挙動にならないよう、なるべくこのメソッドを使用してください。
             </summary>
             <param name="note">音符の種類。</param>
-            <returns>DON、KA、ROLLStartかどうか。</returns>
+            <returns>DON、KA、ROLLStart かどうか。</returns>
         </member>
         <member name="M:Koioto.Support.Extensions.IsComboContinuable(Koioto.Support.FileReader.Judge)">
             <summary>
             コンボ継続可能な判定かどうか。
+            将来的な仕様変更で意図した挙動にならないよう、なるべくこのメソッドを使用してください。
             </summary>
             <param name="judge">判定。</param>
             <returns>コンボが継続可能かどうか。</returns>
         </member>
         <member name="T:Koioto.Support.FileReader.Chip">
             <summary>
-            チップのクラス。
+            音符 (チップ) のクラス。
             </summary>
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.Time">
@@ -171,17 +180,12 @@
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.SENote">
             <summary>
-            音符のSE。
+            音符の SE。
             </summary>
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.Judge">
             <summary>
             判定。
-            </summary>
-        </member>
-        <member name="P:Koioto.Support.FileReader.Chip.Branching">
-            <summary>
-            譜面分岐中の譜面かどうか。
             </summary>
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.Scroll">
@@ -196,23 +200,19 @@
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.Direction">
             <summary>
-            音符の流れてくる方向(弧度法)。
+            音符の流れてくる方向 (弧度法)。
             </summary>
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.IsNote">
             <summary>
             音符であるかどうか。
-            </summary>
-        </member>
-        <member name="P:Koioto.Support.FileReader.Chip.IsReversing">
-            <summary>
-            逆走する音符であるかどうか。
-            スクロール速度が 0 未満かどうかで判定する。
+            プラグインでチップが音符であるかどうかチェックするときは、
+            <c>ChipType == Chips.Note</c> と比較せず、このプロパティを使用してください。
             </summary>
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.IsHitted">
             <summary>
-            このチップが叩かれたか・判定枠を通ったか。
+            音符が叩かれたか、チップが判定枠を通ったかどうか。
             </summary>
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.CanShow">
@@ -227,7 +227,7 @@
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.TimeLag">
             <summary>
-            このチップが叩かれたとき、実際の時間とどのくらい差があったか。
+            この音符が叩かれたとき、実際の時間とどのくらい差があったか。
             </summary>
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.RollCount">
@@ -237,7 +237,7 @@
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.RollObjective">
             <summary>
-            ふうせん連打の目標。
+            ふうせん連打の目標打数。
             </summary>
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.MeasureCount">
@@ -247,13 +247,26 @@
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.Measure">
             <summary>
-            Measure。
+            何分の何拍子か。
             </summary>
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.RollEnd">
             <summary>
             連打の終端。
             </summary>
+        </member>
+        <member name="M:Koioto.Support.FileReader.Chip.CompareTo(Koioto.Support.FileReader.Chip)">
+            <summary>
+            
+            </summary>
+            <param name="chip">チップ</param>
+            <returns></returns>
+        </member>
+        <member name="M:Koioto.Support.FileReader.Chip.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Koioto.Support.FileReader.Chips">
             <summary>
@@ -262,57 +275,62 @@
         </member>
         <member name="F:Koioto.Support.FileReader.Chips.Note">
             <summary>
-            音符
+            音符。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Chips.Measure">
             <summary>
-            小節線
+            小節線。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Chips.MeasureChange">
             <summary>
-            拍子変更
+            拍子変更。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Chips.BPMChange">
             <summary>
-            BPM変更
+            BPM 変更。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Chips.ScrollChange">
             <summary>
-            スクロール速度変更
+            スクロール速度変更。
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Chips.RotateChange">
+            <summary>
+            回転変更。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Chips.GoGoStart">
             <summary>
-            ゴーゴータイム開始
+            ゴーゴータイム開始。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Chips.GoGoEnd">
             <summary>
-            ゴーゴータイム終了
+            ゴーゴータイム終了。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Chips.BarLineOff">
             <summary>
-            小節線OFF
+            小節線 OFF。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Chips.BarLineOn">
             <summary>
-            小節線ON
+            小節線 ON。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Chips.BGMStart">
             <summary>
-            BGMの開始
+            BGMの開始。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Chips.MovieStart">
             <summary>
-            背景動画の開始
+            背景動画の開始。
             </summary>
         </member>
         <member name="T:Koioto.Support.FileReader.Notes">
@@ -322,47 +340,47 @@
         </member>
         <member name="F:Koioto.Support.FileReader.Notes.Space">
             <summary>
-            空白
+            空白。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Notes.Don">
             <summary>
-            ドン
+            ドン。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Notes.Ka">
             <summary>
-            カッ
+            カッ。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Notes.DON">
             <summary>
-            ドン(大)
+            ドン (大)。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Notes.KA">
             <summary>
-            カッ(大)
+            カッ (大)。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Notes.RollStart">
             <summary>
-            連打開始
+            連打開始。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Notes.ROLLStart">
             <summary>
-            連打開始(大)
+            連打開始 (大)。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Notes.Balloon">
             <summary>
-            ふうせん連打
+            ふうせん連打。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Notes.RollEnd">
             <summary>
-            連打終了
+            連打終了。
             </summary>
         </member>
         <member name="T:Koioto.Support.FileReader.SENotes">
@@ -372,62 +390,62 @@
         </member>
         <member name="F:Koioto.Support.FileReader.SENotes.Don">
             <summary>
-            ドン
+            ドン。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.SENotes.Do">
             <summary>
-            ド
+            ド。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.SENotes.Ko">
             <summary>
-            コ
+            コ。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.SENotes.Katsu">
             <summary>
-            カッ
+            カッ。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.SENotes.Ka">
             <summary>
-            カ
+            カ。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.SENotes.DON">
             <summary>
-            ドン(大)
+            ドン (大)。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.SENotes.KA">
             <summary>
-            カッ(大)
+            カッ (大)。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.SENotes.RollStart">
             <summary>
-            連打
+            連打。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.SENotes.ROLLStart">
             <summary>
-            連打(大)
+            連打 (大)。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.SENotes.Rolling">
             <summary>
-            連打中
+            連打中。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.SENotes.RollEnd">
             <summary>
-            連打終了
+            連打終了。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.SENotes.Balloon">
             <summary>
-            ふうせん
+            ふうせん。
             </summary>
         </member>
         <member name="T:Koioto.Support.FileReader.Courses">
@@ -437,77 +455,97 @@
         </member>
         <member name="F:Koioto.Support.FileReader.Courses.Easy">
             <summary>
-            かんたん
+            かんたん。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Courses.Normal">
             <summary>
-            ふつう
+            ふつう。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Courses.Hard">
             <summary>
-            むずかしい
+            むずかしい。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Courses.Oni">
             <summary>
-            おに
+            おに。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Courses.Edit">
             <summary>
-            エディット
+            エディット。
             </summary>
         </member>
         <member name="T:Koioto.Support.FileReader.Judge">
             <summary>
-            判定
+            判定。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Judge.Perfect">
             <summary>
-            良
+            良。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Judge.GoodFast">
             <summary>
-            早い可
+            早い可。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Judge.GoodLate">
             <summary>
-            遅い可
+            遅い可。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Judge.Bad">
             <summary>
-            叩いて不可
+            叩いて不可。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Judge.Miss">
             <summary>
-            見過ごし不可
+            見過ごし不可。
             </summary>
         </member>
         <member name="F:Koioto.Support.FileReader.Judge.None">
             <summary>
-            なし
+            なし。
             </summary>
         </member>
-        <member name="M:Koioto.Support.FileReader.CourseConverter.GetCoursesFromNumber(System.Int32)">
+        <member name="T:Koioto.Support.FileReader.Measure">
             <summary>
-            整数からその整数が意味するコース名を返します。該当しない場合、おにが戻り値になります。
+            何分の何拍子かを表すクラス。
             </summary>
-            <param name="number">整数。</param>
-            <returns>コース名。</returns>
         </member>
-        <member name="M:Koioto.Support.FileReader.CourseConverter.GetCoursesFromString(System.String)">
+        <member name="M:Koioto.Support.FileReader.Measure.#ctor(System.Double,System.Double)">
             <summary>
-            文字列からその文字列が意味するコース名を返します。該当しない場合、おにが戻り値になります。
+            何分の何拍子か指定してクラスを初期化します。
             </summary>
-            <param name="str">文字列。</param>
-            <returns>コース名。</returns>
+            <param name="part">何分のか。</param>
+            <param name="beat">何拍子か。</param>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Measure.Part">
+            <summary>
+            何分のか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Measure.Beat">
+            <summary>
+            何拍子か。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.FileReader.Measure.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Koioto.Support.FileReader.Measure.GetRate">
+            <summary>
+            一小節何秒かを求めます。
+            </summary>
+            <returns>一小節何秒か。</returns>
         </member>
         <member name="T:Koioto.Support.GUI.CardContentBuilder">
             <summary>
@@ -543,77 +581,80 @@
         </member>
         <member name="F:Koioto.Support.HitSide.LeftKa">
             <summary>
-            左縁
+            左縁。
             </summary>
         </member>
         <member name="F:Koioto.Support.HitSide.LeftDon">
             <summary>
-            左面
+            左面。
             </summary>
         </member>
         <member name="F:Koioto.Support.HitSide.RightDon">
             <summary>
-            右面
+            右面。
             </summary>
         </member>
         <member name="F:Koioto.Support.HitSide.RightKa">
             <summary>
-            右縁
+            右縁。
             </summary>
         </member>
-        <member name="T:Koioto.Support.Infomationable">
+        <member name="T:Koioto.Support.SongSelectMetadata">
             <summary>
-            選曲画面で表示する情報
+            選曲画面で表示する情報。
             </summary>
         </member>
-        <member name="P:Koioto.Support.Infomationable.FilePath">
+        <member name="P:Koioto.Support.SongSelectMetadata.FilePath">
             <summary>
-            ファイル名。フルパス。
+            ファイル名。
+            絶対パスで指定する。
             </summary>
         </member>
-        <member name="P:Koioto.Support.Infomationable.Courses">
+        <member name="P:Koioto.Support.SongSelectMetadata.Courses">
             <summary>
-            難易度別情報
+            難易度別情報。
             </summary>
         </member>
-        <member name="P:Koioto.Support.Infomationable.Title">
+        <member name="P:Koioto.Support.SongSelectMetadata.Title">
             <summary>
             タイトル
             </summary>
         </member>
-        <member name="P:Koioto.Support.Infomationable.SubTitle">
+        <member name="P:Koioto.Support.SongSelectMetadata.SubTitle">
             <summary>
             サブタイトル
             </summary>
         </member>
-        <member name="P:Koioto.Support.Infomationable.BPM">
+        <member name="P:Koioto.Support.SongSelectMetadata.BPM">
             <summary>
-            BPM。nullの場合未指定
+            BPM。null の場合未指定
             </summary>
         </member>
-        <member name="P:Koioto.Support.Infomationable.Artist">
+        <member name="P:Koioto.Support.SongSelectMetadata.Artist">
             <summary>
             アーティスト。
             </summary>
         </member>
-        <member name="P:Koioto.Support.Infomationable.Creator">
+        <member name="P:Koioto.Support.SongSelectMetadata.Creator">
             <summary>
             譜面の作成者。
             </summary>
         </member>
-        <member name="P:Koioto.Support.Infomationable.PreviewSong">
+        <member name="P:Koioto.Support.SongSelectMetadata.PreviewSong">
             <summary>
-            音源プレビューのためのファイル名。絶対パス。
+            音源プレビューのためのファイル名。
+            絶対パスで指定する。
             </summary>
         </member>
-        <member name="P:Koioto.Support.Infomationable.SongPreviewTime">
+        <member name="P:Koioto.Support.SongSelectMetadata.SongPreviewTime">
             <summary>
             音源プレビューの開始位置。秒。
             </summary>
         </member>
-        <member name="P:Koioto.Support.Infomationable.AlbumartPath">
+        <member name="P:Koioto.Support.SongSelectMetadata.AlbumartPath">
             <summary>
-            アルバムアートのファイル名。絶対パス。
+            アルバムアートのファイル名。
+            絶対パスで指定する。
             </summary>
         </member>
         <member name="T:Koioto.Support.Log.ComboLog">
@@ -838,9 +879,19 @@
             サブスコア。
             </summary>
         </member>
+        <member name="T:Koioto.Support.NaturalStringComparer">
+            <summary>
+            文字列の自然ソートを提供する。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.NaturalFileInfoNameComparer">
+            <summary>
+            ファイルの自然ソートを提供する。
+            </summary>
+        </member>
         <member name="T:Koioto.Support.Notification">
             <summary>
-            通知
+            通知。
             </summary>
         </member>
         <member name="M:Koioto.Support.Notification.#ctor(System.String,System.String)">
@@ -901,19 +952,24 @@
             実際に再生可能な譜面クラス。
             </summary>
         </member>
+        <member name="P:Koioto.Support.Playable.Sections">
+            <summary>
+            セクション。
+            </summary>
+        </member>
         <member name="T:Koioto.Support.Bridge">
             <summary>
-            Koioto PluginとKoiotoをつなぐクラス。
+            Koioto Plugin と Koioto をつなぐクラス。
             </summary>
         </member>
         <member name="P:Koioto.Support.Bridge.KoiotoAssembly">
             <summary>
-            KoiotoのAssembly。
+            Koioto の Assembly。
             </summary>
         </member>
         <member name="P:Koioto.Support.Bridge.Settings">
             <summary>
-            Koiotoの設定。
+            Koioto の設定。
             </summary>
         </member>
         <member name="P:Koioto.Support.Bridge.CommonAssets">
@@ -923,7 +979,7 @@
         </member>
         <member name="P:Koioto.Support.Bridge.SystemSound">
             <summary>
-            Koiotoのシステムサウンド。
+            Koioto のシステムサウンド。
             </summary>
         </member>
         <member name="P:Koioto.Support.Bridge.NotificationManager">
@@ -948,7 +1004,7 @@
         </member>
         <member name="P:Koioto.Support.Bridge.ThemesDir">
             <summary>
-            Themesディレクトリ。
+            Themes ディレクトリ。
             </summary>
         </member>
         <member name="P:Koioto.Support.Bridge.PluginsDir">
@@ -956,25 +1012,45 @@
             プラグインのディレクトリ。
             </summary>
         </member>
+        <member name="P:Koioto.Support.Bridge.LogsDir">
+            <summary>
+            ログファイルのディレクトリ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Bridge.ScreenshotsDir">
+            <summary>
+            スクリーンショットのディレクトリ。
+            </summary>
+        </member>
         <member name="T:Koioto.Support.Player`1">
             <summary>
-            プレイヤー数が必要な
+            プレイヤー毎にインスタンスが必要な場合に必要な機構を提供するクラス。
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">インスタンス化可能なクラス。</typeparam>
+        </member>
+        <member name="P:Koioto.Support.Player`1.Single">
+            <summary>
+            シングルプレイ用。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Player`1.Multiple">
+            <summary>
+            マルチプレイ用。
+            </summary>
         </member>
         <member name="M:Koioto.Support.Player`1.GetPlayer(System.Int32)">
             <summary>
-            プレイヤー人数に応じてTを返す。
-            0を引数に指定すると、シングルプレイの1Pが返される。
-            プレイヤー人数が2以上の時に0を引数に指定すると、ダブルプレイの1Pが返される。
-            プレイヤー人数が2以上の時に1を引数に指定すると、ダブルプレイの2Pが返される。
+            プレイヤー人数に応じて <c>T</c> を返す。
+            0 を引数に指定すると、シングルプレイの 1P が返される。
+            プレイヤー人数が 2 以上の時に 0 を引数に指定すると、マルチプレイの 1P が返される。
+            プレイヤー人数が 2 以上の時に 1 を引数に指定すると、マルチプレイの 2P が返される。
             </summary>
             <param name="player">プレイヤー人数。</param>
             <returns>T。</returns>
         </member>
         <member name="T:Koioto.Support.Settings">
             <summary>
-            Koiotoの設定クラス。
+            Koioto の設定クラス。
             </summary>
         </member>
         <member name="P:Koioto.Support.Settings.RootPath">
@@ -984,7 +1060,7 @@
         </member>
         <member name="P:Koioto.Support.Settings.WindowHeight">
             <summary>
-            ウィンドウの高さ。DxLibの表示倍率はスキンの高さ÷ウィンドウの高さで決まる。
+            ウィンドウの高さ。DxLib の表示倍率はスキンの高さ/ウィンドウの高さで決まる。
             </summary>
         </member>
         <member name="P:Koioto.Support.Settings.FullScreen">
@@ -994,7 +1070,7 @@
         </member>
         <member name="P:Koioto.Support.Settings.Theme">
             <summary>
-            スキンのフォルダ名。Koiotoの入ってるフォルダ/Theme/フォルダ名 になる。
+            スキンのフォルダ名。Koioto の入ってるフォルダ /Themes/フォルダ名 になる。
             </summary>
         </member>
         <member name="P:Koioto.Support.Settings.DefaultDifficulty">
@@ -1126,28 +1202,28 @@
             <summary>1
             マネージドサウンドを追加する。
             </summary>
-            <param name="managedSound"></param>
-            <returns></returns>
+            <param name="managedSound">マネージドサウンド。</param>
+            <returns>サウンドのインスタンス。</returns>
         </member>
         <member name="M:Koioto.Support.SoundManager.RemoveManagedSound(Amaoto.IPlayable)">
             <summary>
             マネージドサウンドを削除する。
             </summary>
-            <param name="sound"></param>
+            <param name="sound">サウンドのインスタンス。</param>
         </member>
         <member name="M:Koioto.Support.SoundManager.ChangeVolume(System.Double,Koioto.Support.SoundType)">
             <summary>
             音量を変更します。
             </summary>
-            <param name="volume"></param>
-            <param name="soundType"></param>
+            <param name="volume">音量。</param>
+            <param name="soundType">サウンドの種類。</param>
         </member>
         <member name="M:Koioto.Support.SoundManager.GetVolume(Koioto.Support.SoundType)">
             <summary>
-            ボリュームを取得します。
+            音量を取得します。
             </summary>
-            <param name="soundType"></param>
-            <returns></returns>
+            <param name="soundType">サウンドの種類。</param>
+            <returns>音量。</returns>
         </member>
         <member name="T:Koioto.Support.ManagedSound">
             <summary>
@@ -1236,12 +1312,45 @@
             ふうせんが破裂した音。
             </summary>
         </member>
+        <member name="T:Koioto.Support.Theme.Color">
+            <summary>
+            色を扱うクラス。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Theme.Color.#ctor">
+            <summary>
+            デフォルト色 (白色) でクラスを初期化します。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Theme.Color.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            クラスを初期化します。
+            </summary>
+            <param name="red">赤色。</param>
+            <param name="green">緑色。</param>
+            <param name="blue">青色。</param>
+        </member>
+        <member name="M:Koioto.Support.Theme.Color.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            アルファ値を指定してクラスを初期化します。
+            </summary>
+            <param name="red">赤色。</param>
+            <param name="green">緑色。</param>
+            <param name="blue">青色。</param>
+            <param name="alpha">アルファ値。</param>
+        </member>
+        <member name="M:Koioto.Support.Theme.Color.GetColor">
+            <summary>
+            System.Drawing.Color 型の色を取得する。
+            </summary>
+            <returns>System.Drawing.Color 型の色。</returns>
+        </member>
         <member name="M:Koioto.Support.Theme.Color.GetColorDX">
             <summary>
-            DXライブラリで使われるuint型の色を取得する。
+            DXライブラリで使われる uint 型の色を取得する。
             ※アルファ値除く。
             </summary>
-            <returns></returns>
+            <returns>アルファ値を除いた、DX ライブラリ互換の色。</returns>
         </member>
         <member name="P:Koioto.Support.Theme.StringColor.ForeColor">
             <summary>
@@ -1295,31 +1404,31 @@
         </member>
         <member name="M:Koioto.Support.Tracer.Error(System.String)">
             <summary>
-            エラーを出力する
+            エラーを出力する。
             </summary>
-            <param name="msg">メッセージ</param>
+            <param name="msg">メッセージ。</param>
         </member>
         <member name="M:Koioto.Support.Tracer.Error(System.Exception)">
             <summary>
-            エラーを出力する
+            エラーを出力する。
             </summary>
-            <param name="ex">例外オブジェクト</param>
+            <param name="ex">例外オブジェクト。</param>
         </member>
         <member name="M:Koioto.Support.Tracer.Warn(System.String)">
             <summary>
-            警告を出力する
+            警告を出力する。
             </summary>
-            <param name="msg">メッセージ</param>
+            <param name="msg">メッセージ。</param>
         </member>
         <member name="M:Koioto.Support.Tracer.Info(System.String)">
             <summary>
-            情報を出力する
+            情報を出力する。
             </summary>
-            <param name="msg">メッセージ</param>
+            <param name="msg">メッセージ。</param>
         </member>
         <member name="M:Koioto.Support.Tracer.Flush">
             <summary>
-            ストリームに書き込む
+            ストリームに書き込む。
             </summary>
         </member>
         <member name="M:Koioto.Support.Tracer.Indent">
@@ -1352,7 +1461,7 @@
         </member>
         <member name="M:Koioto.Support.Util.ThemeInit``1(System.String,System.Boolean)">
             <summary>
-            テーマのjsonファイルを読み込む。
+            テーマの json ファイルを読み込む。
             </summary>
             <typeparam name="T">テーマのクラス。</typeparam>
             <param name="filePath">ファイルパス。</param>
@@ -1360,9 +1469,9 @@
         </member>
         <member name="M:Koioto.Support.Util.GetRectangleFromDigit(System.Int32,Koioto.Support.Theme.NumberTexture)">
             <summary>
-            0～9の数字から、描画すべき範囲を求める。
+            0 ～ 9 の数字から、描画すべき範囲を求める。
             </summary>
-            <param name="num">0～9。</param>
+            <param name="num">0 ～ 9。</param>
             <param name="tex">テクスチャ。</param>
             <returns>描画すべき範囲。</returns>
         </member>
@@ -1396,15 +1505,15 @@
         </member>
         <member name="M:Koioto.Support.Util.GetFontRenderFromTheme(Koioto.Support.Theme.Font)">
             <summary>
-            システムフォントのFontRenderを生成する。
+            システムフォントの FontRender を生成する。
             </summary>
             <param name="theme">テーマの定義。</param>
             <returns>FontRender。</returns>
         </member>
         <member name="M:Koioto.Support.Util.GetCustomFontRenderFromTheme(System.String,Koioto.Support.Theme.Font)">
             <summary>
-            フォント名を指定してFontRenderを生成する。
-            フォントが存在しないと、Koioto標準のフォントで代替される。
+            フォント名を指定して FontRender を生成する。
+            フォントが存在しないと、Koioto 標準のフォントで代替される。
             </summary>
             <param name="font">フォント名。</param>
             <param name="theme">テーマの定義。</param>
@@ -1412,7 +1521,7 @@
         </member>
         <member name="M:Koioto.Support.Util.GetFontRenderFromTheme(Koioto.Support.Theme.Font,Koioto.Support.Theme.StringColor)">
             <summary>
-            StringTextureを適用したFontRenderを生成する。
+            StringTexture を適用した FontRender を生成する。
             </summary>
             <param name="font">フォントの定義。</param>
             <param name="color">色の定義。</param>
@@ -1420,15 +1529,15 @@
         </member>
         <member name="M:Koioto.Support.Util.GetFontRenderFromTheme(Koioto.Support.Theme.StringTexture)">
             <summary>
-            StringTextureを適用したFontRenderを生成する。
+            StringTexture を適用した FontRender を生成する。
             </summary>
             <param name="theme">テーマの定義。</param>
             <returns>FontRender。</returns>
         </member>
         <member name="M:Koioto.Support.Util.GetCustomFontRenderFromTheme(System.String,Koioto.Support.Theme.StringTexture)">
             <summary>
-            フォント名を指定してStringTextureを適用したFontRenderを生成する
-            フォントが存在しないと、Koioto標準のフォントで代替される。
+            フォント名を指定して StringTexture を適用した FontRender を生成する
+            フォントが存在しないと、Koioto 標準のフォントで代替される。
             </summary>
             <param name="font">フォント名。</param>
             <param name="theme">テーマの定義。</param>
@@ -1436,7 +1545,7 @@
         </member>
         <member name="M:Koioto.Support.Util.SetFontRenderColorFromTheme(Amaoto.FontRender,Koioto.Support.Theme.Color,Koioto.Support.Theme.Color)">
             <summary>
-            FontRenderにテーマの色を設定する。
+            FontRender にテーマの色を設定する。
             </summary>
             <param name="fontRender">FontRender</param>
             <param name="foreColor">文字色。</param>
@@ -1444,17 +1553,17 @@
         </member>
         <member name="M:Koioto.Support.Util.GetDigitsFromLong(System.Int64)">
             <summary>
-            自然数から各桁を求める(反転して)。
+            自然数から各桁を求める (反転して)。
             </summary>
             <param name="num">自然数。</param>
-            <returns>各桁の配列(反転)。</returns>
+            <returns>各桁の配列 (反転)。</returns>
         </member>
         <member name="M:Koioto.Support.Util.GetProperGUIPosition(Koioto.Support.Theme.NormalTexture,Amaoto.GUI.DrawPart)">
             <summary>
             GUI の描画の適切な位置を計算する。
             </summary>
             <param name="normalTexture">NormalTexture。</param>
-            <param name="gui">GUI部品。</param>
+            <param name="gui">GUI 部品。</param>
             <returns>適切な位置。</returns>
         </member>
         <member name="M:Koioto.Support.Util.GetAnimator(Koioto.Support.Theme.AnimationType,System.Int32,System.Int32,System.Int32)">
@@ -1469,7 +1578,7 @@
         </member>
         <member name="M:Koioto.Support.Util.GetTexturesFromDirectory(System.String,System.String)">
             <summary>
-            そのディレクトリにある画像のテクスチャを取得します(名前順)
+            そのディレクトリにある画像のテクスチャを取得します (自然そー十)。
             </summary>
             <param name="dir">ディレクトリ。</param>
             <param name="pattern">ファイル名のパターン。</param>
