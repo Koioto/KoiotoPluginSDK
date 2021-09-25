@@ -462,27 +462,34 @@
         </member>
         <member name="T:Amaoto.AtlasTexture">
             <summary>
-            アトラスを生成する。
-            単一の画像から複数のテクスチャを切り出すことで、描画の高速化を実現する。
+            アトラスを生成します。
+            単一の画像から複数のテクスチャを切り出すことで、描画の高速化を実現します。
             </summary>
         </member>
         <member name="M:Amaoto.AtlasTexture.#ctor(System.String)">
             <summary>
-            アトラスを生成する。
+            アトラスを生成します。
+            単一の画像から複数のテクスチャを切り出すことで、描画の高速化を実現します。
             </summary>
             <param name="fileName">アトラスのファイル名。</param>
         </member>
-        <member name="M:Amaoto.AtlasTexture.GetTexture(System.Drawing.Rectangle)">
+        <member name="M:Amaoto.AtlasTexture.DerivateTexture(System.Drawing.Rectangle)">
             <summary>
-            アトラスからテクスチャを取得する。
+            読み込まれた画像の一部を切り出して、新たにテクスチャを生成します。
             </summary>
-            <param name="rectangle">矩形。</param>
+            <param name="rectangle">切り出す範囲。</param>
             <returns>テクスチャ。</returns>
         </member>
         <member name="M:Amaoto.AtlasTexture.Dispose">
             <summary>
             アトラスを破棄する。
             </summary>
+        </member>
+        <member name="M:Amaoto.AtlasTexture.GetTexture">
+            <summary>
+            アトラス自体のテクスチャを取得する。
+            </summary>
+            <returns>アトラス画像本体のTexture。</returns>
         </member>
         <member name="T:Amaoto.ConfigManager">
             <summary>
@@ -1513,6 +1520,18 @@
             <param name="key">キーコード。</param>
             <returns>離したかどうか。</returns>
         </member>
+        <member name="M:Amaoto.Key.GetKeyCodeString(System.Int32)">
+            <summary>
+            キーコードに対応する文字列を取得します。
+            </summary>
+            <param name="key">キーコード。</param>
+            <returns><c>key</c> に対応する文字列。正しくないキーコードの場合は <c>UNKNOWN</c> が返る。</returns>
+        </member>
+        <member name="F:Amaoto.Key.KeyCodeString">
+            <summary>
+            キーコードの文字列。
+            </summary>
+        </member>
         <member name="T:Amaoto.LayoutBuilder">
             <summary>
             簡易的に複数テクスチャのレイアウトを組む静的クラス。
@@ -1547,26 +1566,26 @@
         </member>
         <member name="M:Amaoto.Mouse.Update">
             <summary>
-            マウスの入力を処理する。必ず毎フレーム呼ぶ必要がある。
+            マウスの入力を処理する。必ず毎フレーム呼ぶ必要があります。
             </summary>
         </member>
         <member name="M:Amaoto.Mouse.IsPushed(Amaoto.MouseButton)">
             <summary>
-            マウスが押されたかどうかチェックする。
+            マウスが押されたかどうかチェックします。。
             </summary>
             <param name="mouseButton">ボタン。</param>
             <returns>押されたかどうか。</returns>
         </member>
         <member name="M:Amaoto.Mouse.IsPushing(Amaoto.MouseButton)">
             <summary>
-            マウスが押されているかどうかチェックする。
+            マウスが押されているかどうかチェックします。
             </summary>
             <param name="mouseButton">ボタン。</param>
             <returns>押されているかどうか。</returns>
         </member>
         <member name="M:Amaoto.Mouse.IsLeft(Amaoto.MouseButton)">
             <summary>
-            マウスのボタンが離されたかどうかチェックする。
+            マウスのボタンが離されたかどうかチェックします。
             </summary>
             <param name="mouseButton">ボタン。</param>
             <returns>離されたかどうか。</returns>
@@ -1769,19 +1788,19 @@
             <summary>
             次再生されるときの音量を設定します。プロパティは変更されません。
             </summary>
-            <param name="volume"></param>
+            <param name="volume">音量。</param>
         </member>
         <member name="M:Amaoto.Sound.SetNextPan(System.Double)">
             <summary>
             次再生されるときのパンを設定します。プロパティは変更されません。
             </summary>
-            <param name="pan"></param>
+            <param name="pan">パン。-1～1の範囲。</param>
         </member>
         <member name="M:Amaoto.Sound.SetNextSpeed(System.Double)">
             <summary>
             次再生されるときの再生速度を変更します。プロパティは変更されません。
             </summary>
-            <param name="value"></param>
+            <param name="value">再生速度。</param>
         </member>
         <member name="M:Amaoto.Sound.Stop">
             <summary>
@@ -1835,7 +1854,7 @@
         </member>
         <member name="T:Amaoto.Texture">
             <summary>
-            テクスチャ管理を行うクラス。
+            テクスチャ。
             </summary>
         </member>
         <member name="M:Amaoto.Texture.#ctor">
@@ -1845,7 +1864,7 @@
         </member>
         <member name="M:Amaoto.Texture.#ctor(System.String)">
             <summary>
-            テクスチャを生成します。
+            画像ファイルからテクスチャを生成します。
             </summary>
             <param name="fileName">ファイル名。</param>
         </member>
@@ -2016,10 +2035,10 @@
         </member>
         <member name="M:Amaoto.TextureMask.#ctor(System.Int32,System.Int32)">
             <summary>
-            
+            テクスチャを使用したマウス区を作成します。
             </summary>
-            <param name="width"></param>
-            <param name="height"></param>
+            <param name="width">マスクの横解像度。</param>
+            <param name="height">マスクの縦解像度。</param>
         </member>
         <member name="M:Amaoto.TextureMask.CreateMask(System.Action)">
             <summary>
@@ -2034,7 +2053,7 @@
             </summary>
             <param name="masking">マスクする内容。</param>
             <param name="reverse">マスクを反転するかどうか。</param>
-            <returns></returns>
+            <returns>TextureMask。</returns>
         </member>
         <member name="M:Amaoto.TextureMask.Dispose">
             <summary>
