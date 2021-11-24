@@ -1584,5 +1584,12 @@
             <param name="pattern">ファイル名のパターン。</param>
             <returns>ディレクトリにある画像。</returns>
         </member>
+        <member name="M:Koioto.Support.Util.GetMimeType(System.String)">
+            <summary>
+            ファイルパスから MIME タイプを取得します。
+            </summary>
+            <param name="path">ファイルパス。フルパスでなくても良い。</param>
+            <returns>MIME タイプ。有効なパスではない場合は空白が返る。</returns>
+        </member>
     </members>
 </doc>
