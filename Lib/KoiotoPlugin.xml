@@ -162,13 +162,13 @@
         </member>
         <member name="T:Koioto.Plugin.IChartReadable">
             <summary>
-            ファイル読み込みプラグインのインターフェース。
-            このインターフェースを実装し、ファイル読み込みプラグインを制作してください。
+            譜面読み込みプラグインのインターフェース。
+            このインターフェースを実装し、譜面読み込みプラグインを制作してください。
             </summary>
         </member>
         <member name="M:Koioto.Plugin.IChartReadable.GetExtensions">
             <summary>
-            このファイル読み込みプラグインで読み込むことのできるファイルフォーマットの拡張子を取得します。
+            この譜面読み込みプラグインで読み込むことのできるファイルフォーマットの拡張子を取得します。
             </summary>
         </member>
         <member name="M:Koioto.Plugin.IChartReadable.GetPlayable(System.String,Koioto.Support.FileReader.Courses)">

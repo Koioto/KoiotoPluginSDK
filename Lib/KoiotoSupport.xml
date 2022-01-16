@@ -1093,6 +1093,11 @@
             Discord。
             </summary>
         </member>
+        <member name="P:Koioto.Support.Settings.KeepOnlyLatestLog">
+            <summary>
+            最新のログのみ残す。
+            </summary>
+        </member>
         <member name="P:Koioto.Support.Settings.Player">
             <summary>
             プレイヤー数。
@@ -1391,11 +1396,6 @@
             トレーサー。
             </summary>
         </member>
-        <member name="T:Koioto.Support.Tracer.LogLevel">
-            <summary>
-            ログレベル
-            </summary>
-        </member>
         <member name="M:Koioto.Support.Tracer.GetTracer(System.String)">
             <summary>
             初期化。
@@ -1441,7 +1441,14 @@
             アンインデントする。
             </summary>
         </member>
-        <member name="M:Koioto.Support.Tracer.Out(Koioto.Support.Tracer.LogLevel,System.String)">
+        <member name="M:Koioto.Support.Tracer.GetCount(Koioto.Support.LogLevel)">
+            <summary>
+            ログの数を取得する。
+            </summary>
+            <param name="level">ログレベル。</param>
+            <returns>ログの数。</returns>
+        </member>
+        <member name="M:Koioto.Support.Tracer.Out(Koioto.Support.LogLevel,System.String)">
             <summary>
             ログを出力する
             </summary>
@@ -1454,12 +1461,46 @@
             </summary>
             <param name="logFile">ファイル情報</param>
         </member>
+        <member name="P:Koioto.Support.Tracer.LogFilePath">
+            <summary>
+            ログファイルのパス。
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.Tracer.InfoCount">
+            <summary>
+            ログレベル Info の数。
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.Tracer.WarnCount">
+            <summary>
+            ログレベル Warn の数。
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.Tracer.ErrorCount">
+            <summary>
+            ログレベル Error の数。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.LogLevel">
+            <summary>
+            ログレベル
+            </summary>
+        </member>
         <member name="T:Koioto.Support.Util">
             <summary>
             ユーティリティクラス。
             </summary>
         </member>
         <member name="M:Koioto.Support.Util.ThemeInit``1(System.String,System.Boolean)">
+            <summary>
+            テーマの json ファイルを読み込む。
+            </summary>
+            <typeparam name="T">テーマのクラス。</typeparam>
+            <param name="filePath">ファイルパス。</param>
+            <param name="isBase">読み込みフォルダがテーマディレクトリかどうか。</param>
+            <returns>デシリアライズ結果。</returns>
+        </member>
+        <member name="M:Koioto.Support.Util.ThemeInit``1(System.String)">
             <summary>
             テーマの json ファイルを読み込む。
             </summary>
