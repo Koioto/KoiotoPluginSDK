@@ -83,6 +83,13 @@
             共通の素材。
             </summary>
         </member>
+        <member name="M:Koioto.Support.CommonAssets.GetCourseIcon(Koioto.Support.FileReader.Courses)">
+            <summary>
+            コースからアイコンのテクスチャを取得する。
+            </summary>
+            <param name="course">コース。</param>
+            <returns>アイコンのテクスチャ。</returns>
+        </member>
         <member name="P:Koioto.Support.CommonAssets.Loading">
             <summary>
             読み込み中
@@ -101,6 +108,31 @@
         <member name="P:Koioto.Support.CommonAssets.SecondaryButton">
             <summary>
             セカンダリ色のボタン。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.CommonAssets.EasyIcon">
+            <summary>
+            コース : Easy のアイコン。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.CommonAssets.NormalIcon">
+            <summary>
+            コース : Normal のアイコン。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.CommonAssets.HardIcon">
+            <summary>
+            コース : Hard のアイコン。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.CommonAssets.OniIcon">
+            <summary>
+            コース : Oni のアイコン。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.CommonAssets.EditIcon">
+            <summary>
+            コース : Edit のアイコン。
             </summary>
         </member>
         <member name="T:Koioto.Support.Difficulty">
@@ -257,7 +289,8 @@
         </member>
         <member name="M:Koioto.Support.FileReader.Chip.CompareTo(Koioto.Support.FileReader.Chip)">
             <summary>
-            
+            チップ同士比較してどちらが遅いか・早いかを返す。
+            同じ時間のチップ同士を比較した場合、音符よりチップが優先される。
             </summary>
             <param name="chip">チップ</param>
             <returns></returns>
@@ -476,6 +509,11 @@
         <member name="F:Koioto.Support.FileReader.Courses.Edit">
             <summary>
             エディット。
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Courses.Dan">
+            <summary>
+            段位認定モード。
             </summary>
         </member>
         <member name="T:Koioto.Support.FileReader.Judge">
@@ -739,11 +777,23 @@
             プレイログを記録する。
             </summary>
         </member>
-        <member name="M:Koioto.Support.Log.PlayLog.#ctor(System.Int32)">
+        <member name="M:Koioto.Support.Log.PlayLog.#ctor(System.Int32,Koioto.Support.FileReader.Courses,System.Nullable{System.Int32})">
             <summary>
             プレイログの初期化。
             </summary>
             <param name="sectionCount">セクション数。</param>
+            <param name="course">プレイしているコース。</param>
+            <param name="courseLevel">コースの難易度。</param>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.Course">
+            <summary>
+            コース。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.CourseLevel">
+            <summary>
+            コースの難易度。
+            </summary>
         </member>
         <member name="P:Koioto.Support.Log.PlayLog.JudgeLogs">
             <summary>

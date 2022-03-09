@@ -88,6 +88,15 @@
             <param name="expandOrig">元のサイズより拡大するかどうか。</param>
             <returns>スケール率。</returns>
         </member>
+        <member name="M:Amaoto.AmaotoUtil.GetScaledTexture(Amaoto.ITextureReturnable,System.Int32,System.Int32)">
+            <summary>
+            規定の解像度にスケール済のテクスチャを返します。
+            </summary>
+            <param name="texture">テクスチャ。</param>
+            <param name="width">横幅。</param>
+            <param name="height">縦幅。</param>
+            <returns>スケール済のテクスチャ。</returns>
+        </member>
         <member name="M:Amaoto.AmaotoUtil.GetProperPositionFromReferencePoint(System.Int32,System.Int32,Amaoto.ReferencePoint)">
             <summary>
             ReferencePointと横幅縦幅から適切な位置を計算する。
